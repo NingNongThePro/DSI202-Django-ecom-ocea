@@ -1,0 +1,186 @@
+{% load static %}
+{% load humanize %}
+{% block content%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+</head>
+<body class="text-gray-700 bg-white">
+    <!-- Header -->
+    <body class="text-gray-700 bg-white">
+    <!-- Header -->
+    <header class="absotlute w-full z-30 relative x-data="{menuOpen: false}>
+        <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+            <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+              <div class="p-4 flex flex-row items-center justify-between">
+                <a href="{% url 'home' %}" class="text- tracking-widest  text-black rounded-lg text-2xl dark-mode:text-white focus:outline-none focus:shadow-outline">Oceà</a>
+                <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                  <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                    <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+              </div>
+              <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+                <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{% url 'about' %}">About</a>
+                <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                  <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                    <span>Category</span>
+                    <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+                <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Shop</a>
+                <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact</a>
+                <span class="relative inline-block">
+                  <button><a class="nav-link" href="{% url 'cartdetail' %}"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 " viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" />
+                  </a></button>
+                  <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+                  {% if item_count > 0 %}
+                      {{item_count}}
+                  {% else %}
+                      0
+                  {% endif %}
+                </span>
+                  <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+                    <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+                      {% for collection in links%}
+                      <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{collection.get_url}}">{{collection.name}}</a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>    
+              </nav>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Video from https://coverr.co/ -->
+<article>
+    <div class="relative flex items-center justify-center h-screen overflow-hidden">
+        <div
+          class="relative z-30 p-5 text-3xl text-white " >
+          <p class="mt-0 text-white text-6xl font-black text-opacity-70 ">make sunscreen <br>to be more than sunscreen</p>
+          <p class="mt-2 text-white text-2xl text-opacity-90">we kindly love to be the one who could change our society to a better solution</p>
+        </div>
+        <video 
+          autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none"><source src="https://petermedina.com/video/beach.mp4" type="video/mp4"/>
+          Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="relative flex items-center justify-center h-5/6	overflow-hidden">
+        <div
+          class="relative z-30 p-5 text-2xl text-white ">
+          <div class="p-10 flex flex-wrap items-center justify-center">
+            {% for product in products %}
+            <div class="flex-shrink-0 m-6 relative overflow-hidden bg-white-500  max-w-xs ">
+                <div class="relative   flex items-center justify-center ">
+                  <div class="block absolute w-max bottom-0 left-0 -mb-24 ml-3 " ></div>
+                  <img class="relative w-max transform duration-200 hover:scale-150" src="{{product.image.url}}" alt="">
+                </div>
+                <div class="relative text-black px-6 pb-6 mt-6">
+                  <span class="block opacity-75 -mb-1">$ {{product.price}}</span>
+                  <div class="flex justify-between">
+                    <span class="block font-semibold text-xl" ><a href="{{product.get_url}}">{{product.name}}</a></span></span>
+                    <a href="{%url 'addCart' product.id %}" button  class="block bg-black rounded-full text-white text-xs px-3 py-2 leading-none flex items-center">Add to cart</button></a>
+                  </div>
+                </div>
+              </div>
+              {%endfor%}
+              </div>
+        </div>
+        <video
+          autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none"><source src="https://www.laneige.com/int/en/assets/video/index/bestseller-bg.mp4" type="video/mp4"/>
+          Your browser does not support the video tag.
+        </video>
+    </div>
+</article>
+        </section>
+    </main>
+    <section class="bg-green-700 bg-opacity-30">
+
+
+    </section>
+
+</main>
+    <!-- Footer -->
+    <footer class="text-white bg-gray-900">
+        <div class="container pt-20 mx-auto">
+            <div class="flex flex-wrap">
+                <div class="w-full p-4 xl:mr-auto xl:w-4/12">
+                    <img src="{% static 'images/logo-main.png' %}" class="w-48 mb-6" alt="" />
+                    <p class="mb-4 text-sm">Duis pharetra venenatis felis, ut tincidunt ipsum consequat nec. Fusce et
+                        porttitor libero, eu aliquam nisi. Nam finibus ullamcorper semper.</p>
+                    <div class="mb-4">
+                        <a href="#" class="hover:text-indigo-200">+1 234 567-890</a>
+                        <br>
+                        <a href="#" class="hover:text-indigo-200">mkdirdsi202@tu.com</a>
+                    </div>
+                    <div>
+                        <a href="#" class="mr-2 text-xl hover:text-indigo-200" title="facebook"><i
+                                class="fa-facebook-square fab"></i></a>
+                        <a href="#" class="mr-2 text-xl hover:text-indigo-200" title="twitter"><i
+                                class="fa-twitter-square fab"></i></a>
+                        <a href="#" class="mr-2 text-xl hover:text-indigo-200" title="linkedin"><i
+                                class="fa-linkedin fab"></i></a>
+                    </div>
+                </div>
+                <div class="w-full p-4 xl:w-2/12 sm:w-4/12">
+                    <h4 class="mb-8 text-lg font-medium text-gray-400 uppercase">About</h4>
+                    <ul>
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-indigo-200">Grade A</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-indigo-200">Business Plan</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-indigo-200">Become an Affiliate</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-indigo-200">Our Product</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full p-4 xl:w-2/12 sm:w-4/12">
+                    <h4 class="mb-8 text-lg font-medium text-gray-400 uppercase">Other</h4>
+                    <ul>
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-indigo-200">Business Stories</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-indigo-200">Learning</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-indigo-200">Licence</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-indigo-200">Refund Policy</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-indigo-200">Terms of Service</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 text-center">
+                <hr class="mb-4 opacity-25">
+                <p class="text-sm">Copyright © Mkdir Dsi202 Project.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+</body>
+
+</html>
+{% endblock %}
