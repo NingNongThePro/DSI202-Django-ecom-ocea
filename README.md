@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a>Ocea</a>
-  e-commerce Website
+  <a>Ocea e-commerce Website</a>
+ 
 ## About
 Web framework : Django  
 CSS framework :Tailwindcss https://tailwindcss.com/  
