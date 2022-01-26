@@ -2,10 +2,10 @@
 <br />
 <p align="center">
   <a>Ocea</a>
-  
+  e-commerce Website
 ## About
 Web framework : Django  
-Front-end framework :Tailwindcss https://tailwindcss.com/  
+CSS framework :Tailwindcss https://tailwindcss.com/  
 Database :MySQL  
   <!-- GETTING STARTED -->
 ## Getting Started
